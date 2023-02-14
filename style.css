@@ -1,0 +1,355 @@
+/* 
+
+CRUDS (Create, read, update, and delete)
+Project Develop By Bashar Omar (https://incodey.com/)
+
+In this Project, You Can manage products
+You can give him the price, Taxes, Ads, and discount, he will automatically collect it
+
+There are some things that are required for the project to work :
+Like the 
+Title, 
+Price,
+Category
+(But of course, you can cancel it if you want or even add more).
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+:root {
+    --input-color: #84a98c;
+    --input-focus: #52796f;
+    --btn-color: #354f52;
+    --btn-color-dark: #2f3e46;
+}
+
+body {
+    color: black;
+    font-family: system-ui;
+    background: #cad2c5;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    behavior: smooth;
+}
+
+::selection {
+    color: #fff;
+    background-color: transparent;
+}
+
+/* Start Main CRUDS */
+.cruds {
+    width: 80%;
+    margin: auto;
+}
+
+.cruds .head {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+.cruds .head h2 a {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: inherit;
+    text-decoration: inherit;
+}
+/* Start Inputs */
+input {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: var(--input-color);
+    margin: 5px 0;
+    border-radius: 5px;
+    padding: 5px 0;
+    color: white;
+    text-transform: capitalize;
+    transition: 0.4s;
+}
+
+input:focus {
+    background-color: var(--input-focus);
+}
+
+input::placeholder {
+    color: #fff;
+    padding: 10px;
+}
+
+.inputs #title {
+    margin-bottom: 30px;
+}
+
+.inputs #submit {
+    width: 26.66666666666667%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 0;
+    margin-top: 5px;
+    background-color: var(--btn-color);
+    color: white;
+    transition: 0.4s;
+}
+
+.inputs #submit:hover {
+    background-color: var(--btn-color-dark);
+}
+
+.price-block {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.price-block input {
+    width: 16%;
+}
+
+.price-block #total {
+    width: 16%;
+    height: 30px;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: #d7d7d7;
+}
+
+.price-block #total::before {
+    content: "Total ";
+    line-height: 30px;
+}
+
+input#category,
+input#count {
+    width: 26.66666666666667%;
+}
+
+.crate-inputs {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.search-block {
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+.search-block #search {
+    height: 30px;
+    margin: 0;
+    padding: 10px;
+    width: 20%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+/* Start Tables */
+table {
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    border-spacing: 5px 10px;
+}
+
+th,
+td {
+    padding: 25px;
+}
+/* Start Buttons */
+.btn-search .searchBtn,
+#delete-all button {
+    background-color: var(--btn-color);
+    color: white;
+    display: flex;
+    padding: 10px 30px;
+    width: 305px;
+    position: relative;
+    transition: 0.2s linear;
+    border-radius: 8px;
+    height: 50px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.btn-search .searchBtn:hover,
+#delete-all button:hover {
+    background-color: var(--btn-color-dark);
+}
+
+.btn-search {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btn-search #searchTitle,
+.btn-search #searchCategory {
+    width: 20%;
+    cursor: pointer;
+}
+
+button#searchCategory {
+    padding: 10px 20px;
+}
+
+#update,
+#delete {
+    background-color: transparent;
+    color: white;
+    border: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#update:hover,
+#delete:hover {
+    background-color: var(--btn-color-dark);
+}
+/* Start Icons */
+.icon {
+    background-color: var(--btn-color-dark);
+    padding: 11px 20px;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    height: 28px;
+    border-radius: 0px 8px 8px 0px;
+}
+
+/* Icon One */
+.gg-search {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 100%;
+    margin-left: -4px;
+    margin-top: 4px;
+}
+
+.gg-search::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    width: 2px;
+    height: 8px;
+    background: currentColor;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 12px
+}
+
+/* Icon Tow */
+.gg-search-loading {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 100%;
+    margin-left: -4px;
+    margin-top: 4px
+}
+
+.gg-search-loading::after,
+.gg-search-loading::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 2px;
+    background: currentColor
+}
+
+.gg-search-loading::after {
+    border-radius: 3px;
+    height: 8px;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 12px
+}
+
+.gg-search-loading::before {
+    height: 2px;
+    border-radius: 100%;
+    top: 5px;
+    left: 5px;
+    box-shadow: -3px 0 0,3px 0 0
+}
+
+/* Icon Three */
+.gg-close-o {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    border-radius: 40px;
+    margin: 4px;
+}
+
+.gg-close-o::after,
+.gg-close-o::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 8px;
+    left: 3px
+}
+
+.gg-close-o::after {
+    transform: rotate(-45deg)
+}
+/* Start Outputs */
+.outputs-title {
+    background-color: var(--btn-color-dark);
+    color: white;
+}
+
+.outputs-res {
+    background-color: var(--btn-color);
+    color: white;
+    position: relative;
+    text-transform: capitalize;
+}

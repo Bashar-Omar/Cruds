@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="web icon" href="incodey-SiteIcon.jpg">
+</head>
+<body>
+
+<div class="cruds">
+    <div class="head">
+        <h2><a href="https://incodey.com/" target="_blank">Cruds</a></h2>
+        <p>Product Management System</p>
+    </div>
+    <div class="inputs">
+        <input type="text" id="title" placeholder="Title">
+        <div class="price-block">
+            <input onkeyup="getTotal()" type="number" id="price" placeholder="Price">
+            <input onkeyup="getTotal()" type="number" id="taxes" placeholder="Taxes">
+            <input onkeyup="getTotal()" type="number" id="ads" placeholder="Ads">
+            <input onkeyup="getTotal()" type="number" id="discount" placeholder="Discount">
+            <div id="total"></div>
+        </div>
+        <div class="crate-inputs">
+        <input type="number" id="count" placeholder="Count">
+        <input type="text" id="category" placeholder="Category">
+        <button id="submit">Crate</button>
+    </div>
+        <div class="search-block">
+            <div class="btn-search">
+                <input onkeyup="searchData(this.value)" type="text" id="search" placeholder="Search">
+                <button onclick="getSearchMood(this.id)" id="searchTitle" class="searchBtn">Search By Title <div class="icon"><i class="gg-search"></i></div></button>
+                <button onclick="getSearchMood(this.id)" id="searchCategory" class="searchBtn">Search By Category <div class="icon"><i class="gg-search-loading"></i></div></button>
+                <div id="delete-all"></div>
+            </div>
+        </div>
+    </div>
+    <div class="outputs">
+        
+        <table>
+            <tr>
+                <th class="outputs-title">Id</th>
+                <th class="outputs-title">Title</th>
+                <th class="outputs-title">Price</th>
+                <th class="outputs-title">Taxes</th>
+                <th class="outputs-title">ADS</th>
+                <th class="outputs-title">Discount</th>
+                <th class="outputs-title">Total</th>
+                <th class="outputs-title">Category</th>
+                <th class="outputs-title">Update</th>
+                <th class="outputs-title">Delete</th>
+            </tr>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+</div>
+    <script src="main.js"></script>
+</body>
+</html>
+
+<!-- onkeyup="searchData(this.value)" -->
+
+
